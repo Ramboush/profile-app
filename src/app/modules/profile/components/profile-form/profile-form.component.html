@@ -1,0 +1,41 @@
+<h2>Edit profile information</h2>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="username" [class.is-invalid]="checkFormErrors && f.username.errors" />
+        <div *ngIf="checkFormErrors && f.username.errors">
+            <div *ngIf="f.username.errors.required" class="error">Name is required.</div>
+            <div *ngIf="f.username.errors.minlength" class="error">Name must contain at least 4 characters.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" formControlName="email" [class.is-invalid]="checkFormErrors && f.email.errors" />
+        <div *ngIf="checkFormErrors && f.email.errors">
+            <div *ngIf="f.email.errors.required" class="error">Email is required.</div>
+            <div *ngIf="f.email.errors.email" class="error">Email must be a valid email address.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="phone_number">Phone number</label>
+        <input type="text" id="phone_number" formControlName="phoneNumber" [class.is-invalid]="checkFormErrors && f.phoneNumber.errors" />
+        <div *ngIf="checkFormErrors && f.phoneNumber.errors">
+            <div *ngIf="f.phoneNumber.errors.required" class="error">Phone number is required.</div>
+            <div *ngIf="f.phoneNumber.errors.pattern" class="error">Phone number can not contain letters.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="bg_color">Background color</label>
+        <input type="color" id="bg_color" formControlName="customBgColor" [class.is-invalid]="checkFormErrors && f.customBgColor.errors" />
+        <div *ngIf="checkFormErrors && f.customBgColor.errors">
+            <div *ngIf="f.customBgColor.errors.required" class="error">Phone number is required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn--submit" type="submit" [disabled]="pendingSubmit">Submit profile data</button>
+        <button class="btn btn--reset" type="button" (click)="onReset()">Reset  profile data</button>
+    </div>
+</form>
+<p class="invisible" [class.invisible--reveal]="showSuccess">
+    Success!
+</p>

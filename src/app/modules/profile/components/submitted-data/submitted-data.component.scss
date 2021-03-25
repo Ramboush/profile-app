@@ -1,0 +1,17 @@
+.submitted-data {
+  margin-bottom: 20px;
+  &--main {
+    --font-size-name: 22px;
+    --font-size-contacts: 18px;
+    padding: 0 20px;
+  }
+  &__name {
+    font-size: var(--font-size-name, 16px);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  &__email, &__phone {
+    font-size: var(--font-size-contacts, 14px);
+    margin-bottom: 5px;
+  }
+}

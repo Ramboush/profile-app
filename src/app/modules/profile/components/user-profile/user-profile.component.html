@@ -1,0 +1,8 @@
+<div [style.backgroundColor]="getProfileBgColor()" class="user-profile">
+  <button class="logout" (click)="onLogoutClicked()">Log out</button>
+  <p *ngIf="!downloadSuccess && !downloadError" class="user-profile__loading-state">Loading...</p>
+  <p *ngIf="downloadError" class="user-profile__loading-state user-profile__loading-state--error">Error - data could not be downloaded!</p>
+  <p *ngIf="downloadSuccess" class="user-profile__loading-state user-profile__loading-state--success">Data successfuly loaded!</p>
+  <app-submitted-data></app-submitted-data>
+  <app-profile-form></app-profile-form>
+</div>
