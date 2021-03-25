@@ -17,7 +17,7 @@ export class ProfileDataService {
 
   public submitProfileData(data: any): Observable<any> {
     const uri = '/api/post';
-    return this.http.post(uri, data).pipe(debounce(() => timer(5000)));
+    return this.http.post(uri, data);
   }
 
   public loadAppData(params: Array<string>): Observable<any> {
