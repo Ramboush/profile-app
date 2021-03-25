@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {forkJoin, Observable, Subject, timer} from 'rxjs';
-import {concatMap, debounce, mergeMap} from 'rxjs/operators';
+import { forkJoin, Observable, Subject } from 'rxjs';
+import { concatMap } from 'rxjs/operators';
 
 @Injectable()
 export class ProfileDataService {
@@ -16,11 +16,15 @@ export class ProfileDataService {
   }
 
   public submitProfileData(data: any): Observable<any> {
+    /* To prevent CORS errors make sure you're running app with
+     * "npm run start" instead of "ng serve" */
     const uri = '/api/post';
     return this.http.post(uri, data);
   }
 
   public loadAppData(params: Array<string>): Observable<any> {
+    /* To prevent CORS errors make sure you're running app with
+     * "npm run start" instead of "ng serve" */
     const baseUri = '/api/get?';
     return this.http.get(baseUri + params[0])
         .pipe(
