@@ -29,7 +29,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
 
   private loadAppData(): void {
 
-    this.profileDataService.loadAppDataWithForkJoin(this.dataToCall).subscribe(
+    this.profileDataService.loadAppData(this.dataToCall).subscribe(
         () => {
           this.downloadSuccess = true;
 
